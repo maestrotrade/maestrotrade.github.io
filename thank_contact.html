@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Message Sent | Maestro Trade</title>
+<style>
+:root{--bg:#050505;--panel:#0d0d0f;--gold:#D4AF37;--gold2:#F3D979;--text:#f8f8f8;--muted:#a9abb4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;background:radial-gradient(circle at 50% -10%,rgba(212,175,55,.14),transparent 34%),linear-gradient(180deg,#050505,#08090b 55%,#050505);color:var(--text);font-family:Arial,Helvetica,sans-serif;display:flex;flex-direction:column}
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:30px 16px}
+.card{width:min(760px,100%);background:linear-gradient(180deg,#101115,#090a0d);border:1px solid rgba(212,175,55,.22);border-radius:28px;padding:clamp(30px,7vw,58px);text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.logo{width:min(150px,34vw);height:auto;border-radius:50%;margin:0 auto 24px;display:block}
+.check{width:70px;height:70px;margin:0 auto 22px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:2rem;font-weight:800}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.7rem,8vw,5rem);line-height:1;margin-bottom:20px}
+h1 span{color:var(--gold)}
+p{color:var(--muted);font-size:1.05rem;max-width:600px;margin:0 auto 28px;line-height:1.7}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:55px;padding:15px 30px;border-radius:999px;background:var(--gold);color:#050505;text-decoration:none;font-weight:800}
+.btn:hover{background:var(--gold2)}
+.roma{margin-top:28px;color:var(--gold2);font-size:.78rem;letter-spacing:2px;text-transform:uppercase}
+footer{text-align:center;padding:22px;color:#777b83;font-size:.78rem}
+@media(max-width:600px){.btn{width:100%}.card{border-radius:22px}}
+</style>
+</head>
+<body>
+<main>
+<section class="card">
+<img class="logo" src="https://maestrotrade.github.io/maestro_trade.png" alt="Maestro Trade">
+<div class="check">✓</div>
+<h1>Thank You for Your <span>Message</span></h1>
+<p>Your message has been sent successfully. Thank you for contacting Maestro Trade. We’ll review your inquiry and get back to you as soon as possible.</p>
+<a class="btn" href="https://maestrotrade.github.io/">Return to Maestro Trade</a>
+<div class="roma">Maestro Trade • Roma, Italia</div>
+</section>
+</main>
+<footer>© 2026 Maestro Trade. All rights reserved.</footer>
+</body>
+</html>
