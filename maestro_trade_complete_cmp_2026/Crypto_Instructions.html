@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maestro Trade Crypto | M1 & M5 Installation Guide</title>
+<meta name="description" content="Beginner-friendly setup and operating guide for Maestro Trade NDAX Crypto M1 and M5 trading bots.">
+<style>
+:root{--bg:#050505;--panel:#0d0d0f;--panel2:#121216;--gold:#D4AF37;--gold2:#F3D979;--text:#f7f7f7;--muted:#a9abb4;--green:#68e6a6;--red:#ff8b8b;--line:rgba(212,175,55,.2)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:radial-gradient(circle at 50% -8%,rgba(212,175,55,.15),transparent 30%),linear-gradient(#050505,#08090b 55%,#050505);color:var(--text);font:16px/1.68 Arial,Helvetica,sans-serif}
+.container{width:min(1050px,calc(100% - 28px));margin:auto}.hero{text-align:center;padding:42px 0 34px}
+.logo{width:min(145px,35vw);border-radius:50%;display:block;margin:0 auto 16px}.brand{font:700 clamp(2rem,6vw,3.5rem) Georgia,serif}.gold{color:var(--gold)}
+.roma{color:var(--gold2);letter-spacing:2px;text-transform:uppercase;font-size:.75rem}.hero h1,h2{font-family:Georgia,serif}.hero h1{font-size:clamp(2.5rem,7vw,5rem);line-height:1.02;margin:28px 0 14px}.hero p,.muted{color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:22px}.pill{padding:7px 12px;border:1px solid var(--line);border-radius:999px;color:#ddd;font-size:.82rem}
+.alert{margin:22px auto 0;max-width:880px;text-align:left;padding:17px 19px;border-radius:17px;background:rgba(255,139,139,.06);border:1px solid rgba(255,139,139,.28);color:#ddd}.alert b{color:#ffb4b4}
+nav{position:sticky;top:0;z-index:10;background:rgba(5,5,5,.92);backdrop-filter:blur(14px);border-block:1px solid rgba(255,255,255,.055)}.nav{display:flex;gap:8px;overflow:auto;padding:10px 0;white-space:nowrap}.nav a{text-decoration:none;color:#ccc;border:1px solid rgba(255,255,255,.08);padding:7px 11px;border-radius:999px;font-size:.79rem}.nav a:hover{color:var(--gold2);border-color:var(--gold)}
+section{padding:50px 0}.kicker{color:var(--gold);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.72rem}.head{margin-bottom:24px}.head h2{font-size:clamp(2rem,5vw,3.35rem);line-height:1.06;margin:7px 0 9px}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid rgba(255,255,255,.065);border-radius:23px;padding:clamp(21px,4vw,33px);box-shadow:0 22px 65px rgba(0,0,0,.4)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.steps{display:grid;gap:13px}.step{display:grid;grid-template-columns:54px 1fr;gap:16px;background:#0c0d10;border:1px solid rgba(255,255,255,.065);border-radius:19px;padding:20px}.num{width:48px;height:48px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font:700 1.35rem Georgia,serif}.step h3,.card h3{margin-bottom:6px}.step p{color:var(--muted)}
+code,.code{font-family:Consolas,"Courier New",monospace;background:#050607;color:var(--gold2);border:1px solid rgba(212,175,55,.18);border-radius:8px}.code{display:block;white-space:pre-wrap;overflow-wrap:anywhere;padding:13px 15px;margin-top:10px}
+.check{list-style:none;margin-top:13px}.check li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.055);color:#d7d8dc}.check li:before{content:"✓";color:var(--green);font-weight:bold;margin-right:9px}
+.call{margin-top:16px;border-left:3px solid var(--gold);padding:14px 17px;background:rgba(212,175,55,.045);border-radius:0 13px 13px 0;color:#d5d6da}
+.table{overflow:auto;border:1px solid rgba(255,255,255,.06);border-radius:17px}table{width:100%;border-collapse:collapse;min-width:690px;background:#0b0c0f}th,td{text-align:left;padding:13px 14px;border-bottom:1px solid rgba(255,255,255,.055);vertical-align:top}th{color:var(--gold2);background:#101115;text-transform:uppercase;font-size:.78rem;letter-spacing:.6px}td{color:#d4d5d9;font-size:.9rem}
+.good{color:var(--green);font-weight:700}.bad{color:#ff9d9d;font-weight:700}.tag{display:inline-block;background:var(--gold);color:#050505;font-weight:800;border-radius:999px;padding:4px 9px;font-size:.7rem;margin-bottom:12px}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-top:17px}.flow div{padding:15px 8px;text-align:center;border:1px solid var(--line);border-radius:14px;background:#090a0c;font-size:.82rem}.flow b{display:block;color:var(--gold2)}
+details{background:#0b0c0f;border:1px solid rgba(255,255,255,.065);border-radius:14px;padding:15px 17px;margin:9px 0}summary{cursor:pointer;font-weight:700}details p{color:var(--muted);margin-top:8px}
+footer{text-align:center;color:#777b83;font-size:.78rem;padding:32px 0 46px;border-top:1px solid rgba(255,255,255,.05)}
+@media(max-width:760px){.grid2,.flow{grid-template-columns:1fr}.step{grid-template-columns:43px 1fr}.num{width:39px;height:39px}section{padding:40px 0}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="container">
+<img class="logo" src="https://maestrotrade.github.io/maestro_trade.png" alt="Maestro Trade">
+<div class="brand">MAESTRO <span class="gold">TRADE</span></div><div class="roma">Roma, Italia</div>
+<h1>Crypto Scalpers <span class="gold">Installation Guide</span></h1>
+<p>Start-to-finish instructions for the supplied NDAX M1 Fast Scalper, M5 Precision Bot and their shared <b>.env</b> configuration file.</p>
+<div class="pills"><span class="pill">NDAX Spot Crypto</span><span class="pill">Python</span><span class="pill">M1 + M5</span><span class="pill">Shared Risk Controls</span><span class="pill">Automatic Protection</span></div>
+<div class="alert"><b>READ THIS FIRST:</b> The supplied configuration may be armed for LIVE trading. Before entering API credentials or starting the bots for the first time, set <code>LIVE_TRADING=false</code> and leave <code>LIVE_ARM=</code> blank. Automated crypto trading can lose money. Test first and never assume a bot guarantees profit.</div>
+</div></header>
+
+<nav><div class="container nav"><a href="#files">Package</a><a href="#python">Install Python</a><a href="#folder">Folder</a><a href="#env">Configure .env</a><a href="#run">Run</a><a href="#m1">M1</a><a href="#m5">M5</a><a href="#live">Go Live</a><a href="#logs">Logs</a><a href="#stop">Stop/Restart</a><a href="#faq">Help</a></div></nav>
+
+<main>
+<section id="files"><div class="container"><div class="head"><div class="kicker">01 • Package</div><h2>Only three files to start.</h2><p class="muted">Keep these three supplied files together in one Windows folder.</p></div>
+<div class="card"><div class="table"><table><tr><th>File</th><th>Purpose</th></tr>
+<tr><td><b>.env</b></td><td>One shared configuration file for credentials, symbols, risk limits, spread filters, logs, state files, and paper/live mode.</td></tr>
+<tr><td><b>crypto_m1_trading_bot.py</b></td><td>M1 fast scalper. Reads one-minute candles and also uses a five-minute trend regime filter.</td></tr>
+<tr><td><b>crypto_m5_trading_bot.py</b></td><td>M5 production bot. Evaluates completed five-minute candles for continuation/momentum setups.</td></tr></table></div>
+<div class="call">The bots automatically create their JSON state files, bot-specific log files, the shared trade log, and the shared position-lock file as they run. You do not manually create those files.</div></div>
+</div></section>
+
+<section id="python"><div class="container"><div class="head"><div class="kicker">02 • One-Time Computer Setup</div><h2>Install Python and the required packages.</h2></div>
+<div class="steps">
+<div class="step"><div class="num">1</div><div><h3>Install Python 3</h3><p>Install a current Python 3 release for Windows. During installation, enable the option to add Python to PATH if offered.</p></div></div>
+<div class="step"><div class="num">2</div><div><h3>Open Command Prompt</h3><p>Press the Windows key, type <b>cmd</b>, and open Command Prompt.</p></div></div>
+<div class="step"><div class="num">3</div><div><h3>Confirm Python works</h3><span class="code">python --version</span><p style="margin-top:8px">You should see a Python 3 version instead of an error.</p></div></div>
+<div class="step"><div class="num">4</div><div><h3>Install the libraries used by both bots</h3><span class="code">python -m pip install ccxt pandas numpy python-dotenv</span><p style="margin-top:8px">CCXT connects the Python code to NDAX; pandas and NumPy support candle/indicator calculations; python-dotenv loads the shared .env file.</p></div></div>
+</div></div></section>
+
+<section id="folder"><div class="container"><div class="head"><div class="kicker">03 • Folder Setup</div><h2>Create one bot folder.</h2></div>
+<div class="card"><p>Create this folder in Windows:</p><span class="code">C:\NDAX_BOT</span><p class="muted" style="margin-top:14px">Copy the three package files into it. Your folder should initially look like:</p><span class="code">C:\NDAX_BOT\
+  .env
+  crypto_m1_trading_bot.py
+  crypto_m5_trading_bot.py</span>
+<div class="call"><b>Important:</b> Windows may hide known file extensions. Make sure the scripts really end in <b>.py</b> and that the configuration is named exactly <b>.env</b>, not <b>.env.txt</b>.</div></div></div></section>
+
+<section id="env"><div class="container"><div class="head"><div class="kicker">04 • Shared Configuration</div><h2>Set up the .env file.</h2><p class="muted">Both bots read the same .env, so you configure the account and shared controls once.</p></div>
+<div class="grid2">
+<div class="card"><h3>NDAX credentials</h3><p class="muted">Open <b>.env</b> in Notepad and enter your own NDAX API credentials in these fields:</p><span class="code">NDAX_API_KEY=YOUR_API_KEY
+NDAX_API_SECRET=YOUR_API_SECRET
+NDAX_USER_ID=YOUR_USER_ID
+NDAX_ACCOUNT_ID=</span><p class="muted" style="margin-top:12px">The scripts can discover the account ID, so the Account ID field can normally remain blank. Keep the .env private. Never publish it to GitHub or send your filled-in copy to another person.</p></div>
+<div class="card"><h3>Pairs being scanned</h3><span class="code">NDAX_SYMBOLS=BTC/CAD,ETH/CAD,SOL/CAD,LINK/CAD</span><p class="muted" style="margin-top:12px">This supplied configuration makes both bots scan those four CAD markets. Only add symbols that actually exist on NDAX and that you intentionally want the bots to evaluate.</p></div>
+</div>
+<div class="card" style="margin-top:18px"><h3>FIRST RUN — safe test setting</h3><span class="code">LIVE_TRADING=false
+LIVE_ARM=</span><p class="muted" style="margin-top:12px">With this setting, the strategy can operate in paper mode rather than intentionally sending real orders. Do this first even if you ultimately plan to trade live.</p></div>
+</div></section>
+
+<section id="run"><div class="container"><div class="head"><div class="kicker">05 • Start the Bots</div><h2>Run M1 and M5 in two windows.</h2></div>
+<div class="steps">
+<div class="step"><div class="num">1</div><div><h3>Open Command Prompt #1</h3><span class="code">cd C:\NDAX_BOT</span></div></div>
+<div class="step"><div class="num">2</div><div><h3>Start M1</h3><span class="code">python crypto_m1_trading_bot.py</span><p style="margin-top:8px">Leave this window open.</p></div></div>
+<div class="step"><div class="num">3</div><div><h3>Open Command Prompt #2</h3><span class="code">cd C:\NDAX_BOT</span></div></div>
+<div class="step"><div class="num">4</div><div><h3>Start M5</h3><span class="code">python crypto_m5_trading_bot.py</span><p style="margin-top:8px">Leave this second window open too.</p></div></div>
+</div>
+<div class="card" style="margin-top:18px"><h3>What a healthy startup looks like</h3><ul class="check"><li>The bot prints its version and mode.</li><li>NDAX markets load.</li><li>Your configured symbols show AVAILABLE.</li><li>If credentials are valid, the private API reports AUTHENTICATED.</li><li>A HEARTBEAT appears periodically so you know the program is alive.</li><li>The bot begins reporting completed candles and filter/check results.</li></ul></div>
+</div></section>
+
+<section id="m1"><div class="container"><div class="head"><div class="kicker">06 • M1 Fast Scalper</div><h2>What M1 actually does.</h2></div>
+<div class="grid2"><div class="card"><span class="tag">FAST ENGINE</span><h3>M1 + M5 trend confirmation</h3><p class="muted">The M1 bot scans confirmed one-minute candles, but its current profile also checks the five-minute trend before accepting an entry.</p><ul class="check"><li>EMA 9 / EMA 20 structure</li><li>RSI momentum zone</li><li>ADX and directional movement</li><li>ATR-normalized EMA separation</li><li>Bollinger-band width</li><li>Signal-candle body size</li><li>Pair-specific spread ceiling</li><li>M5 trend and EMA slope confirmation</li><li>Cooldown after a closed trade</li></ul></div>
+<div class="card"><h3>Supplied M1 .env profile</h3><div class="table"><table><tr><th>Control</th><th>Value</th></tr><tr><td>Risk cap</td><td>C$2.50</td></tr><tr><td>Reward : risk</td><td>1.5 : 1</td></tr><tr><td>Maximum position capital</td><td>C$100</td></tr><tr><td>Minimum CAD reserve</td><td>C$50</td></tr><tr><td>Maximum trades / UTC day</td><td>5</td></tr><tr><td>Maximum daily loss</td><td>C$5</td></tr><tr><td>Minimum ADX</td><td>18</td></tr><tr><td>Poll interval</td><td>5 seconds</td></tr><tr><td>Cooldown</td><td>3 M1 bars</td></tr></table></div></div></div>
+</div></section>
+
+<section id="m5"><div class="container"><div class="head"><div class="kicker">07 • M5 Precision Bot</div><h2>What M5 actually does.</h2></div>
+<div class="grid2"><div class="card"><span class="tag">SELECTIVE ENGINE</span><h3>Five-minute continuation/momentum</h3><p class="muted">The M5 bot waits for confirmed completed five-minute candles and evaluates trend/momentum quality. It is normal for it to reject many candles.</p><ul class="check"><li>EMA 9 / EMA 20 structure</li><li>RSI acceptance zones</li><li>ADX and +DI/-DI confirmation</li><li>ATR and EMA separation</li><li>Bollinger-band width</li><li>Signal-candle body filter</li><li>Spread ceiling by pair</li><li>ATR-adaptive stop distance</li><li>Cooldown after a closed trade</li></ul></div>
+<div class="card"><h3>Supplied M5 .env profile</h3><div class="table"><table><tr><th>Control</th><th>Value</th></tr><tr><td>Risk cap</td><td>C$2.50</td></tr><tr><td>Reward : risk</td><td>2 : 1</td></tr><tr><td>Maximum position capital</td><td>C$100</td></tr><tr><td>Minimum CAD reserve</td><td>C$50</td></tr><tr><td>Maximum trades / UTC day</td><td>3</td></tr><tr><td>Maximum daily loss</td><td>C$5</td></tr><tr><td>Minimum ADX</td><td>18</td></tr><tr><td>Poll interval</td><td>15 seconds</td></tr><tr><td>Cooldown</td><td>2 M5 bars</td></tr></table></div></div></div>
+</div></section>
+
+<section id="protection"><div class="container"><div class="head"><div class="kicker">08 • Shared Safety Design</div><h2>How the two bots cooperate.</h2></div>
+<div class="card"><div class="flow"><div><b>Signal</b>Setup qualifies</div><div><b>Shared Lock</b>Checks no other bot owns position</div><div><b>Entry</b>Market BUY in live mode</div><div><b>Protection</b>Native stop-market SELL attempted</div><div><b>Exit</b>Stop or local TP</div></div>
+<div class="call">The shared lock is designed to allow only <b>one open position across M1 + M5 combined</b>. If one bot owns the lock, the other bot is blocked from opening another position.</div>
+<p class="muted" style="margin-top:16px">These supplied bots are <b>spot-long only</b>: no shorts and no leverage. After a live buy fills, the code attempts to place an exchange-native protective stop-market sell. If that protective stop cannot be created, the code attempts an emergency market sell. The take-profit is monitored locally by the running Python bot, while the native downside stop remains on the exchange.</p></div>
+</div></section>
+
+<section id="live"><div class="container"><div class="head"><div class="kicker">09 • Live Trading</div><h2>Only arm live mode intentionally.</h2></div>
+<div class="alert"><b>Do not change this until paper testing and API authentication are verified.</b> Live mode sends real orders and can lose real money.</div>
+<div class="card" style="margin-top:18px"><p>Stop both bots with <b>Ctrl+C</b>. Edit .env and change the two shared lines to:</p><span class="code">LIVE_TRADING=true
+LIVE_ARM=YES_REAL_ORDERS</span><p class="muted" style="margin-top:12px">Both conditions must match exactly before the code permits real orders. Restart both bots and confirm the startup says <b>LIVE-ARMED</b> and that private API authentication succeeds. If LIVE_TRADING is true but LIVE_ARM is wrong, the bot's safety check blocks real orders.</p>
+<div class="call"><b>Do not distribute a customer package with your own filled-in API credentials.</b> The customer must enter their own credentials locally.</div></div>
+</div></section>
+
+<section id="logs"><div class="container"><div class="head"><div class="kicker">10 • Files Created While Running</div><h2>Logs, state and shared lock.</h2></div>
+<div class="table"><table><tr><th>File</th><th>What it does</th><th>Should I delete it?</th></tr>
+<tr><td><b>m1_log.txt</b></td><td>Detailed M1 diagnostics, checks, filters, errors and heartbeat information.</td><td>Normally no; archive it if it becomes large.</td></tr>
+<tr><td><b>m5_log.txt</b></td><td>Detailed M5 diagnostics, checks, filters, errors and heartbeat information.</td><td>Normally no.</td></tr>
+<tr><td><b>log.txt</b></td><td>Shared compact closed-trade log. Each closed trade records M1/M5, pair, PAPER/LIVE and profit/loss.</td><td>Keep it if you want performance history.</td></tr>
+<tr><td><b>ndax_crypto_m1_shared_state.json</b></td><td>Persistent M1 state used for positions, daily stats, processed candles and restart recovery.</td><td class="bad">Do not casually delete.</td></tr>
+<tr><td><b>ndax_crypto_m5_shared_state.json</b></td><td>Persistent M5 state used for the same purpose.</td><td class="bad">Do not casually delete.</td></tr>
+<tr><td><b>ndax_shared_position.lock</b></td><td>Coordinates M1 and M5 so both do not independently open positions at the same time.</td><td class="bad">Do not delete while a position may be active.</td></tr></table></div>
+</div></section>
+
+<section id="messages"><div class="container"><div class="head"><div class="kicker">11 • Reading the Console</div><h2>Common messages in plain English.</h2></div>
+<div class="table"><table><tr><th>Message</th><th>Meaning</th><th>What to do</th></tr>
+<tr><td class="good">PRIVATE API | AUTHENTICATED</td><td>Your credentials were accepted and the bot obtained account access needed for its private trading functions.</td><td>Good. Continue monitoring startup.</td></tr>
+<tr><td>ADX &lt; minimum</td><td>Trend strength is too weak for the configured strategy.</td><td>Wait.</td></tr>
+<tr><td>Spread &gt; max</td><td>Current bid/ask spread is above the pair's configured ceiling.</td><td>Wait. Do not loosen it just to force trades.</td></tr>
+<tr><td>M1/M5 momentum criteria not met</td><td>The fast signal does not agree with all M1/M5 rules.</td><td>Wait.</td></tr>
+<tr><td>Signal body too large</td><td>The current candle is too extended relative to ATR.</td><td>Wait for another setup.</td></tr>
+<tr><td>SHARED LOCK BLOCK</td><td>The other bot already owns the one-position shared lock.</td><td>Normal when another shared position is active.</td></tr>
+<tr><td>DAILY SAFETY BLOCK</td><td>Daily trade count or daily realized-loss limit has been reached.</td><td>Do not bypass casually; the bot is enforcing the configured safety cap.</td></tr>
+<tr><td class="bad">NATIVE STOP FAILED</td><td>The bot could not create the intended exchange-native protective stop after entry.</td><td>Inspect NDAX and the log immediately; the code attempts an emergency sell.</td></tr></table></div>
+</div></section>
+
+<section id="stop"><div class="container"><div class="head"><div class="kicker">12 • Stop & Restart</div><h2>How to shut the bots down safely.</h2></div>
+<div class="card"><p>To stop a bot, click its Command Prompt window and press:</p><span class="code">Ctrl + C</span><p class="muted" style="margin-top:12px">The scripts catch the keyboard interrupt and log that the bot was stopped by the user. To restart, return to <b>C:\NDAX_BOT</b> and run the same Python command again.</p>
+<div class="alert"><b>Critical live-mode note:</b> the downside stop is designed to rest on NDAX, but the take-profit is managed locally by the Python program. Therefore, do not assume that closing the bot leaves the complete strategy managed automatically. Before shutting down a live bot with an open position, inspect the live NDAX position/order status and understand what protective order remains active.</div>
+<p class="muted" style="margin-top:14px">The state JSON files support restart recovery, and the shared-lock reconciliation is designed not to automatically clear a lock belonging to the other bot.</p></div>
+</div></section>
+
+<section id="faq"><div class="container"><div class="head"><div class="kicker">13 • Troubleshooting</div><h2>Beginner questions.</h2></div>
+<details open><summary>'python' is not recognized.</summary><p>Python is either not installed or not available on your Windows PATH. Install Python 3 and make sure the PATH option is enabled, then reopen Command Prompt.</p></details>
+<details><summary>It says ModuleNotFoundError.</summary><p>Install the required packages with <code>python -m pip install ccxt pandas numpy python-dotenv</code>.</p></details>
+<details><summary>The bot starts but says authentication failed.</summary><p>Recheck NDAX_API_KEY, NDAX_API_SECRET and NDAX_USER_ID in .env. Do not add quotation marks or extra spaces unless specifically required. Live mode aborts when private authentication fails.</p></details>
+<details><summary>Why is the bot not trading?</summary><p>It may simply have no valid setup. Spread, ADX, RSI, EMA separation, volatility, candle size, M5 trend confirmation, cooldown, daily limits, reserve requirements or the shared lock can all prevent an entry.</p></details>
+<details><summary>Can I run M1 and M5 at the same time?</summary><p>Yes. That is the intended shared configuration: run each script in its own Command Prompt window while both read the same .env and coordinate through the shared position lock.</p></details>
+<details><summary>Can I close the Command Prompt windows?</summary><p>Not if you expect the local bots to continue scanning and managing their local take-profit logic. Closing the window stops that Python process.</p></details>
+<details><summary>Do these bots short crypto?</summary><p>No. The supplied code is spot-long only, with no short selling and no leverage.</p></details>
+</div></section>
+
+<section><div class="container"><div class="card" style="text-align:center"><div class="kicker">START HERE SUMMARY</div><h2>Five steps.</h2><p class="muted">1. Install Python → 2. Install the four Python packages → 3. Put all three supplied files in C:\NDAX_BOT → 4. Enter your NDAX credentials and start with PAPER mode → 5. Run M1 and M5 in separate Command Prompt windows.</p></div></div></section>
+</main>
+<footer><div class="container">© 2026 Maestro Trade • Roma, Italia • Automated Trading Systems<br><br>Software documentation only. Crypto trading involves substantial risk. Execution, fees, spread, slippage, exchange availability and market gaps can cause actual results to differ from planned risk and reward.</div></footer>
+</body></html>
