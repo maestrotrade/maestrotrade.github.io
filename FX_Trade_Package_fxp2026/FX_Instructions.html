@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maestro Trade FX | M1 & M5 Scalper Installation Guide</title>
+<meta name="description" content="Simple step-by-step installation and operating guide for Maestro Trade FX M1 and M5 Expert Advisors on MetaTrader 4.">
+<style>
+:root{
+  --bg:#050505;--panel:#0d0d0f;--panel2:#121216;--gold:#D4AF37;--gold2:#F3D979;
+  --text:#f8f8f8;--muted:#a9abb4;--green:#63e6a4;--red:#ff7777;
+  --line:rgba(212,175,55,.20);--shadow:0 24px 70px rgba(0,0,0,.42)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:radial-gradient(circle at 50% -8%,rgba(212,175,55,.14),transparent 30%),
+             linear-gradient(180deg,#050505,#08090b 55%,#050505);
+  color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.68
+}
+a{color:inherit}
+.container{width:min(1040px,calc(100% - 28px));margin:auto}
+.hero{text-align:center;padding:46px 0 34px}
+.logo{width:min(145px,34vw);height:auto;border-radius:50%;display:block;margin:0 auto 18px}
+.brand{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,6vw,3.5rem);font-weight:700}
+.gold{color:var(--gold)}
+.roma{color:var(--gold2);letter-spacing:2px;text-transform:uppercase;font-size:.75rem;margin-top:5px}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.6rem,7vw,5rem);line-height:1;margin:30px 0 16px}
+.hero p{color:var(--muted);max-width:760px;margin:auto;font-size:1.04rem}
+.quick{margin:24px auto 0;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.pill{border:1px solid var(--line);background:rgba(212,175,55,.04);border-radius:999px;padding:8px 13px;color:#ddd;font-size:.82rem}
+.warning{margin:22px auto 0;max-width:850px;padding:18px 20px;border:1px solid rgba(255,119,119,.25);background:rgba(255,119,119,.055);border-radius:18px;color:#d8d8dc;text-align:left}
+.warning strong{color:#ffb1b1}
+nav{position:sticky;top:0;z-index:20;background:rgba(5,5,5,.91);backdrop-filter:blur(15px);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav{display:flex;gap:8px;overflow:auto;padding:10px 0;white-space:nowrap}
+.nav a{text-decoration:none;border:1px solid rgba(255,255,255,.07);border-radius:999px;padding:8px 12px;color:#c8c9ce;font-size:.8rem}
+.nav a:hover{border-color:var(--gold);color:var(--gold2)}
+section{padding:54px 0}
+.head{margin-bottom:26px}
+.kicker{color:var(--gold);font-size:.73rem;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;margin:8px 0 10px}
+.head p,.muted{color:var(--muted)}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid rgba(255,255,255,.065);border-radius:24px;padding:clamp(22px,4vw,34px);box-shadow:var(--shadow)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.engine h3{font-family:Georgia,"Times New Roman",serif;font-size:2rem;margin-bottom:8px}
+.engine .tag{display:inline-block;color:#070707;background:var(--gold);font-weight:800;border-radius:999px;padding:5px 10px;font-size:.7rem;margin-bottom:14px}
+.engine ul,.checklist{list-style:none;margin-top:18px}
+.engine li,.checklist li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.055);color:#d7d8dc}
+.engine li:before,.checklist li:before{content:"✓";color:var(--green);font-weight:800;margin-right:10px}
+.steps{display:grid;gap:14px}
+.step{display:grid;grid-template-columns:58px 1fr;gap:18px;align-items:start;background:linear-gradient(180deg,#101115,#0a0b0d);border:1px solid rgba(255,255,255,.065);border-radius:20px;padding:22px}
+.num{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--gold);color:var(--gold);font-family:Georgia,serif;font-size:1.5rem;font-weight:700}
+.step h3{font-size:1.08rem;margin-bottom:5px}
+.step p{color:var(--muted)}
+.path,code{font-family:Consolas,"Courier New",monospace;background:#050607;border:1px solid rgba(212,175,55,.18);color:var(--gold2);border-radius:8px;padding:2px 7px}
+.path{display:block;padding:12px 14px;margin-top:10px;overflow:auto}
+.callout{margin-top:18px;border-left:3px solid var(--gold);background:rgba(212,175,55,.045);padding:16px 18px;border-radius:0 14px 14px 0;color:#d5d6da}
+.table-wrap{overflow:auto;border-radius:18px;border:1px solid rgba(255,255,255,.06)}
+table{width:100%;border-collapse:collapse;min-width:650px;background:#0b0c0f}
+th,td{text-align:left;padding:15px;border-bottom:1px solid rgba(255,255,255,.055);vertical-align:top}
+th{color:var(--gold2);background:#101115;font-size:.82rem;text-transform:uppercase;letter-spacing:.7px}
+td{color:#d5d6da;font-size:.91rem}
+.good{color:var(--green);font-weight:700}
+.bad{color:#ff9a9a;font-weight:700}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:20px}
+.flow div{background:#0b0c0f;border:1px solid var(--line);border-radius:16px;padding:17px 10px;text-align:center;color:#d8d9dc;font-size:.85rem}
+.flow b{display:block;color:var(--gold2);margin-bottom:4px}
+.faq details{background:#0b0c0f;border:1px solid rgba(255,255,255,.065);border-radius:15px;padding:16px 18px;margin:10px 0}
+.faq summary{cursor:pointer;font-weight:700;color:#eee}
+.faq details p{color:var(--muted);margin-top:10px}
+footer{padding:34px 0 50px;border-top:1px solid rgba(255,255,255,.05);text-align:center;color:#777b83;font-size:.78rem}
+.btn{display:inline-flex;margin-top:22px;text-decoration:none;background:var(--gold);color:#050505;font-weight:800;border-radius:999px;padding:14px 24px}
+@media(max-width:760px){
+  .grid2{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.step{grid-template-columns:45px 1fr}.num{width:42px;height:42px;font-size:1.2rem}
+  section{padding:42px 0}.hero{padding-top:28px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+<div class="container">
+  <img class="logo" src="https://maestrotrade.github.io/maestro_trade.png" alt="Maestro Trade">
+  <div class="brand">MAESTRO <span class="gold">TRADE</span></div>
+  <div class="roma">Roma, Italia</div>
+  <h1>FX Scalpers <span class="gold">Installation Guide</span></h1>
+  <p>A beginner-friendly guide to installing, starting, and understanding the Maestro Trade M1 Fast Scalper and M5 Precision Trader in MetaTrader 4.</p>
+  <div class="quick">
+    <span class="pill">MetaTrader 4</span><span class="pill">M1 Scalper</span><span class="pill">M5 Trader</span>
+    <span class="pill">Automatic SL & TP</span><span class="pill">Risk-Based Lot Size</span>
+  </div>
+  <div class="warning"><strong>Important:</strong> Automated trading can lose money. Start on a demo account or very small live risk until you have verified the EA, broker symbol names, spread behavior, lot sizing, stop-loss placement, and order execution. No profit or win rate is guaranteed.</div>
+</div>
+</header>
+
+<nav><div class="container nav">
+<a href="#before">Before You Start</a><a href="#install">Install</a><a href="#charts">Charts</a>
+<a href="#m1">M1</a><a href="#m5">M5</a><a href="#both">Run Both</a><a href="#verify">Verify</a><a href="#faq">Troubleshooting</a>
+</div></nav>
+
+<main>
+
+<section id="before"><div class="container">
+<div class="head"><div class="kicker">01 • Before You Start</div><h2>What you need.</h2><p>You do not need to know programming. You only need MetaTrader 4, your broker login, and the supplied Maestro Trade EA files.</p></div>
+<div class="grid2">
+<div class="card">
+<h3>Required</h3>
+<ul class="checklist">
+<li>MetaTrader 4 installed on a Windows PC or VPS</li>
+<li>A broker account connected to MT4</li>
+<li>The supplied M1 <code>.mq4</code> or <code>.ex4</code> EA</li>
+<li>The supplied M5 <code>.mq4</code> or <code>.ex4</code> EA</li>
+<li>Charts for the currency pairs you want the bots to monitor</li>
+<li>Internet connection while the EAs are running</li>
+</ul>
+</div>
+<div class="card">
+<h3>Simple rule to remember</h3>
+<p class="muted" style="margin-top:10px"><b style="color:var(--gold2)">M1 EA goes on an M1 chart.</b><br><br><b style="color:var(--gold2)">M5 EA goes on an M5 chart.</b><br><br>If you want both systems on the same pair, open two separate charts for that pair: one M1 and one M5.</p>
+</div>
+</div>
+</div></section>
+
+<section id="install"><div class="container">
+<div class="head"><div class="kicker">02 • Installation</div><h2>Install the EA in MT4.</h2><p>Follow these steps exactly. You normally do this only once for each EA file.</p></div>
+<div class="steps">
+<div class="step"><div class="num">1</div><div><h3>Open MetaTrader 4</h3><p>Log in to the trading account you want to use. For first testing, a demo account is strongly recommended.</p></div></div>
+<div class="step"><div class="num">2</div><div><h3>Open the MT4 data folder</h3><p>In MT4 click <b>File → Open Data Folder</b>. A Windows folder will open.</p></div></div>
+<div class="step"><div class="num">3</div><div><h3>Open the Experts folder</h3><p>Open:</p><span class="path">MQL4 → Experts</span></div></div>
+<div class="step"><div class="num">4</div><div><h3>Copy the Maestro Trade EA files</h3><p>Copy the supplied M1 and M5 <code>.mq4</code>/<code>.ex4</code> files into the <b>Experts</b> folder. Do not place Expert Advisors in Indicators or Scripts.</p></div></div>
+<div class="step"><div class="num">5</div><div><h3>If you received .mq4 source files, compile them</h3><p>Open the file in MetaEditor and click <b>Compile</b> (or press F7 in many MT4 installations). A successful compile creates the executable <code>.ex4</code> file. If an <code>.ex4</code> is already supplied, compilation is normally unnecessary.</p></div></div>
+<div class="step"><div class="num">6</div><div><h3>Return to MT4 and refresh</h3><p>In the <b>Navigator</b> window, right-click <b>Expert Advisors → Refresh</b>. If the EAs still do not appear, close and reopen MT4.</p></div></div>
+</div>
+</div></section>
+
+<section id="charts"><div class="container">
+<div class="head"><div class="kicker">03 • Charts</div><h2>Prepare the currency-pair charts.</h2></div>
+<div class="card">
+<p>Open the currency pair you want to trade, for example <b>EUR/USD</b>. Use <b>File → New Chart</b> or open it from Market Watch.</p>
+<div class="callout"><b>For M1:</b> select the <b>M1</b> timeframe before attaching the M1 EA.<br><b>For M5:</b> select the <b>M5</b> timeframe before attaching the M5 EA.</div>
+<p class="muted" style="margin-top:18px">Repeat this for every pair you intentionally want the system to trade. Your broker may use symbol suffixes such as EURUSD.a or EURUSD-ECN; always use the exact symbol shown by your broker.</p>
+</div>
+</div></section>
+
+<section id="m1"><div class="container">
+<div class="head"><div class="kicker">04 • M1 Engine</div><h2>How the M1 Fast Scalper works.</h2><p>The M1 system looks for faster opportunities but does not simply buy or sell every one-minute move.</p></div>
+<div class="grid2">
+<div class="card engine">
+<span class="tag">FAST ENGINE</span><h3>M1 Fast Scalper</h3>
+<p class="muted">The current Maestro M1 design analyzes one-minute signals and can use the five-minute trend as a higher-timeframe confirmation.</p>
+<ul>
+<li>Uses M1 for the trading signal</li>
+<li>Can confirm direction with the M5 trend</li>
+<li>Checks trend/momentum quality using EMA, RSI and ADX logic</li>
+<li>Checks volatility and Bollinger-band width</li>
+<li>Rejects oversized signal candles</li>
+<li>Checks spread before entry</li>
+<li>Calculates position size from the configured CAD risk cap</li>
+<li>Creates stop-loss and take-profit automatically</li>
+<li>Uses cooldown and daily safety limits</li>
+</ul>
+</div>
+<div class="card">
+<h3>Current default profile</h3>
+<div class="table-wrap" style="margin-top:15px"><table>
+<tr><th>Setting</th><th>Typical supplied default</th></tr>
+<tr><td>Signal timeframe</td><td>M1</td></tr>
+<tr><td>Trend confirmation</td><td>M5</td></tr>
+<tr><td>Risk cap</td><td>C$5 per trade</td></tr>
+<tr><td>Reward : Risk target</td><td>1.5 : 1</td></tr>
+<tr><td>Minimum ADX</td><td>18</td></tr>
+<tr><td>Magic Number</td><td>111111</td></tr>
+<tr><td>Daily trade cap</td><td>8 by default</td></tr>
+<tr><td>Daily loss cap</td><td>C$20 by default</td></tr>
+</table></div>
+<p class="muted" style="margin-top:14px">Defaults can change between package versions. The values shown in the EA's <b>Inputs</b> tab are authoritative for the file you received.</p>
+</div>
+</div>
+</div></section>
+
+<section id="m5"><div class="container">
+<div class="head"><div class="kicker">05 • M5 Engine</div><h2>How the M5 Precision Trader works.</h2><p>The M5 system is slower and more selective. It waits for a five-minute setup that passes its quality filters.</p></div>
+<div class="grid2">
+<div class="card engine">
+<span class="tag">SELECTIVE ENGINE</span><h3>M5 Precision Trader</h3>
+<p class="muted">The M5 engine is designed around continuation/momentum conditions rather than constant trading.</p>
+<ul>
+<li>Analyzes completed M5 candles</li>
+<li>Uses EMA 9/20 trend structure</li>
+<li>Checks minimum EMA separation</li>
+<li>Uses RSI quality zones</li>
+<li>Uses ADX and directional +DI/-DI confirmation</li>
+<li>Checks ATR, volatility and band width</li>
+<li>Rejects poor spread conditions</li>
+<li>Uses ATR-adaptive stop distance</li>
+<li>Calculates lot size from the configured risk cap</li>
+<li>Uses a defined reward-to-risk target</li>
+</ul>
+</div>
+<div class="card">
+<h3>Current default profile</h3>
+<div class="table-wrap" style="margin-top:15px"><table>
+<tr><th>Setting</th><th>Typical supplied default</th></tr>
+<tr><td>Signal timeframe</td><td>M5</td></tr>
+<tr><td>Risk cap</td><td>C$10 per trade</td></tr>
+<tr><td>Reward : Risk target</td><td>2 : 1</td></tr>
+<tr><td>Minimum ADX</td><td>18</td></tr>
+<tr><td>EMA separation</td><td>Required</td></tr>
+<tr><td>Magic Number</td><td>888888</td></tr>
+<tr><td>Cooldown</td><td>2 bars after close</td></tr>
+<tr><td>Session filtering</td><td>Enabled in the current currency-pair build</td></tr>
+</table></div>
+<p class="muted" style="margin-top:14px">The M5 bot may sit idle for long periods. <b>No trade is often the correct result</b> when its filters do not agree.</p>
+</div>
+</div>
+</div></section>
+
+<section id="both"><div class="container">
+<div class="head"><div class="kicker">06 • Running Both</div><h2>M1 + M5 on the same pair.</h2></div>
+<div class="card">
+<p>MT4 permits only one Expert Advisor on a single chart. Therefore, use <b>two charts</b> when running both Maestro engines on the same currency pair.</p>
+<div class="flow">
+<div><b>EUR/USD</b>Open chart</div><div><b>Chart #1</b>Set M1</div><div><b>Attach</b>M1 Scalper</div><div><b>Chart #2</b>Set M5</div><div><b>Attach</b>M5 Trader</div>
+</div>
+<div class="callout">The current M1 build is designed to recognize/block conflicting exposure from the companion M5 EA using its separate Magic Number. Do not casually change Magic Numbers or exposure-control inputs unless you understand the effect.</div>
+</div>
+</div></section>
+
+<section id="activate"><div class="container">
+<div class="head"><div class="kicker">07 • Activate</div><h2>Attach the EA and turn on trading.</h2></div>
+<div class="steps">
+<div class="step"><div class="num">1</div><div><h3>Find the EA</h3><p>In Navigator → Expert Advisors, find the Maestro M1 or M5 EA.</p></div></div>
+<div class="step"><div class="num">2</div><div><h3>Attach it to the correct chart</h3><p>Drag the EA onto the chart or double-click it. M1 goes on M1; M5 goes on M5.</p></div></div>
+<div class="step"><div class="num">3</div><div><h3>Review the Inputs tab</h3><p>Check <b>RiskCAD</b> and other settings. Do not increase risk simply because the EA is automated.</p></div></div>
+<div class="step"><div class="num">4</div><div><h3>Allow live trading</h3><p>In the EA properties, enable <b>Allow live trading</b>. Only enable DLL imports if a supplied version specifically requires them; do not enable unnecessary permissions.</p></div></div>
+<div class="step"><div class="num">5</div><div><h3>Turn on MT4 AutoTrading</h3><p>Click the <b>AutoTrading</b> button on the MT4 toolbar so automated trading is globally enabled.</p></div></div>
+<div class="step"><div class="num">6</div><div><h3>Confirm the EA is active</h3><p>Look at the upper-right corner of the chart. The EA name should be visible and MT4 should indicate that automated trading is enabled.</p></div></div>
+</div>
+</div></section>
+
+<section id="verify"><div class="container">
+<div class="head"><div class="kicker">08 • First-Run Check</div><h2>Do not walk away yet.</h2><p>Before treating the setup as complete, verify these items.</p></div>
+<div class="card">
+<ul class="checklist">
+<li>The correct broker account is logged in</li>
+<li>The M1 EA is attached only to M1 charts</li>
+<li>The M5 EA is attached only to M5 charts</li>
+<li>AutoTrading is enabled</li>
+<li>The Experts/Journal tabs show no repeating errors</li>
+<li>The configured RiskCAD is appropriate for your account</li>
+<li>Lot sizes calculated by the EA look reasonable</li>
+<li>Spread is not constantly causing rejection because of broker pricing</li>
+<li>When a test trade occurs, SL and TP are present and correctly placed</li>
+<li>You understand that a running EA can legitimately show zero trades while waiting for a valid setup</li>
+</ul>
+</div>
+</div></section>
+
+<section id="reading"><div class="container">
+<div class="head"><div class="kicker">09 • Reading the Bot</div><h2>What common messages mean.</h2></div>
+<div class="table-wrap"><table>
+<tr><th>Message / behavior</th><th>Meaning</th><th>Action</th></tr>
+<tr><td class="good">Scanning / waiting</td><td>The EA is running but no setup currently passes all filters.</td><td>Usually do nothing.</td></tr>
+<tr><td>ADX too low</td><td>Trend strength is below the required threshold.</td><td>Wait for stronger conditions.</td></tr>
+<tr><td>Spread too high</td><td>Trading cost is above the EA's permitted level.</td><td>Wait; do not automatically loosen the filter.</td></tr>
+<tr><td>RSI criteria not met</td><td>Momentum is outside the strategy's acceptable zone.</td><td>Wait.</td></tr>
+<tr><td>EMA separation too weak</td><td>The short/long EMA relationship is not strong enough.</td><td>Wait.</td></tr>
+<tr><td>Signal body too large</td><td>The move may already be extended; the EA rejects chasing it.</td><td>Wait for another setup.</td></tr>
+<tr><td class="bad">Trade disabled / EA not trading</td><td>AutoTrading, Allow live trading, login rights, market status, or another permission may be blocking orders.</td><td>Check the activation and troubleshooting sections.</td></tr>
+</table></div>
+</div></section>
+
+<section id="faq"><div class="container faq">
+<div class="head"><div class="kicker">10 • Troubleshooting</div><h2>Common beginner questions.</h2></div>
+<details open><summary>I copied the EA but cannot see it in Navigator.</summary><p>Confirm it is inside <b>MQL4 → Experts</b>, not Indicators or Scripts. Right-click Expert Advisors → Refresh. If it is an MQ4 file, compile it in MetaEditor. Restart MT4 if necessary.</p></details>
+<details><summary>The EA is visible but it does not trade.</summary><p>Check AutoTrading, Allow live trading, the correct timeframe, market hours, spread filters, strategy filters, and the Experts/Journal tabs. A valid bot can run normally without placing a trade if no setup qualifies.</p></details>
+<details><summary>Can I put M1 and M5 on the same chart?</summary><p>No. MT4 supports one Expert Advisor per chart. Open two copies of the pair: one M1 chart for the M1 EA and one M5 chart for the M5 EA.</p></details>
+<details><summary>Can I close MT4 after installing the bots?</summary><p>No. The terminal must remain running and connected for locally hosted EAs to operate. If you want 24/7 operation, use a suitable always-on PC or VPS.</p></details>
+<details><summary>Should I change RiskCAD?</summary><p>Only intentionally. RiskCAD controls the intended monetary risk used in lot-size calculations. Start conservatively and verify actual broker execution before increasing it.</p></details>
+<details><summary>Does a 2:1 target mean I will make twice what I lose?</summary><p>It means the strategy's target distance is designed around roughly two units of reward for one unit of defined risk in that M5 profile. Real fills, spread, slippage, gaps, stop constraints, and execution can make actual results different.</p></details>
+</div></section>
+
+<section><div class="container">
+<div class="card" style="text-align:center">
+<div class="kicker">Final Checklist</div>
+<h2>Installed. Connected. Controlled.</h2>
+<p class="muted">Keep your account credentials private, monitor the first trades, and evaluate the system over a meaningful sample rather than judging it from one or two trades.</p>
+<a class="btn" href="https://maestrotrade.github.io/">Maestro Trade Home</a>
+</div>
+</div></section>
+
+</main>
+<footer><div class="container">© 2026 Maestro Trade • Roma, Italia • Automated Trading Systems<br><br>Educational and software documentation only. Trading forex and CFDs involves substantial risk and can result in loss of capital.</div></footer>
+</body>
+</html>
