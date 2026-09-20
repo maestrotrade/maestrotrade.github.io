@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maestro Trade Crypto | M1, M5 & M15 Installation Guide</title>
+<meta name="description" content="Beginner-friendly setup and operating guide for Maestro Trade NDAX Crypto M1, M5 and M15 trading bots with shared MAESTRO intelligence and learning telemetry.">
+<style>
+:root{--bg:#050505;--panel:#0d0d0f;--panel2:#121216;--gold:#D4AF37;--gold2:#F3D979;--text:#f7f7f7;--muted:#a9abb4;--green:#68e6a6;--red:#ff8b8b;--line:rgba(212,175,55,.2)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:radial-gradient(circle at 50% -8%,rgba(212,175,55,.15),transparent 30%),linear-gradient(#050505,#08090b 55%,#050505);color:var(--text);font:16px/1.68 Arial,Helvetica,sans-serif}
+.container{width:min(1050px,calc(100% - 28px));margin:auto}.hero{text-align:center;padding:42px 0 34px}
+.logo{width:min(145px,35vw);border-radius:50%;display:block;margin:0 auto 16px}.brand{font:700 clamp(2rem,6vw,3.5rem) Georgia,serif}.gold{color:var(--gold)}
+.roma{color:var(--gold2);letter-spacing:2px;text-transform:uppercase;font-size:.75rem}.hero h1,h2{font-family:Georgia,serif}.hero h1{font-size:clamp(2.5rem,7vw,5rem);line-height:1.02;margin:28px 0 14px}.hero p,.muted{color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:22px}.pill{padding:7px 12px;border:1px solid var(--line);border-radius:999px;color:#ddd;font-size:.82rem}
+.alert{margin:22px auto 0;max-width:880px;text-align:left;padding:17px 19px;border-radius:17px;background:rgba(255,139,139,.06);border:1px solid rgba(255,139,139,.28);color:#ddd}.alert b{color:#ffb4b4}
+nav{position:sticky;top:0;z-index:10;background:rgba(5,5,5,.92);backdrop-filter:blur(14px);border-block:1px solid rgba(255,255,255,.055)}.nav{display:flex;gap:8px;overflow:auto;padding:10px 0;white-space:nowrap}.nav a{text-decoration:none;color:#ccc;border:1px solid rgba(255,255,255,.08);padding:7px 11px;border-radius:999px;font-size:.79rem}.nav a:hover{color:var(--gold2);border-color:var(--gold)}
+section{padding:50px 0}.kicker{color:var(--gold);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.72rem}.head{margin-bottom:24px}.head h2{font-size:clamp(2rem,5vw,3.35rem);line-height:1.06;margin:7px 0 9px}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid rgba(255,255,255,.065);border-radius:23px;padding:clamp(21px,4vw,33px);box-shadow:0 22px 65px rgba(0,0,0,.4)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.steps{display:grid;gap:13px}.step{display:grid;grid-template-columns:54px 1fr;gap:16px;background:#0c0d10;border:1px solid rgba(255,255,255,.065);border-radius:19px;padding:20px}.num{width:48px;height:48px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font:700 1.35rem Georgia,serif}.step h3,.card h3{margin-bottom:6px}.step p{color:var(--muted)}
+code,.code{font-family:Consolas,"Courier New",monospace;background:#050607;color:var(--gold2);border:1px solid rgba(212,175,55,.18);border-radius:8px}.code{display:block;white-space:pre-wrap;overflow-wrap:anywhere;padding:13px 15px;margin-top:10px}
+.check{list-style:none;margin-top:13px}.check li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.055);color:#d7d8dc}.check li:before{content:"✓";color:var(--green);font-weight:bold;margin-right:9px}
+.call{margin-top:16px;border-left:3px solid var(--gold);padding:14px 17px;background:rgba(212,175,55,.045);border-radius:0 13px 13px 0;color:#d5d6da}
+.table{overflow:auto;border:1px solid rgba(255,255,255,.06);border-radius:17px}table{width:100%;border-collapse:collapse;min-width:690px;background:#0b0c0f}th,td{text-align:left;padding:13px 14px;border-bottom:1px solid rgba(255,255,255,.055);vertical-align:top}th{color:var(--gold2);background:#101115;text-transform:uppercase;font-size:.78rem;letter-spacing:.6px}td{color:#d4d5d9;font-size:.9rem}
+.good{color:var(--green);font-weight:700}.bad{color:#ff9d9d;font-weight:700}.tag{display:inline-block;background:var(--gold);color:#050505;font-weight:800;border-radius:999px;padding:4px 9px;font-size:.7rem;margin-bottom:12px}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-top:17px}.flow div{padding:15px 8px;text-align:center;border:1px solid var(--line);border-radius:14px;background:#090a0c;font-size:.82rem}.flow b{display:block;color:var(--gold2)}
+details{background:#0b0c0f;border:1px solid rgba(255,255,255,.065);border-radius:14px;padding:15px 17px;margin:9px 0}summary{cursor:pointer;font-weight:700}details p{color:var(--muted);margin-top:8px}
+footer{text-align:center;color:#777b83;font-size:.78rem;padding:32px 0 46px;border-top:1px solid rgba(255,255,255,.05)}
+@media(max-width:760px){.grid2,.flow{grid-template-columns:1fr}.step{grid-template-columns:43px 1fr}.num{width:39px;height:39px}section{padding:40px 0}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="container">
+<img class="logo" src="https://maestrotrade.github.io/maestro_trade.png" alt="Maestro Trade">
+<div class="brand">MAESTRO <span class="gold">TRADE</span></div><div class="roma">Roma, Italia</div>
+<h1>Crypto Trading Bots <span class="gold">Installation Guide</span></h1>
+<p>Start-to-finish instructions for the supplied NDAX M1 Fast Scalper, M5 Precision Trader, M15 Stable Trader, shared <b>MAESTRO_ENTRY.py</b> intelligence module and shared <b>.env</b> configuration.</p>
+<div class="pills"><span class="pill">NDAX Spot Crypto</span><span class="pill">Python</span><span class="pill">M1 + M5 + M15</span><span class="pill">Shared Entry Intelligence</span><span class="pill">Learning Telemetry</span><span class="pill">Adaptive Protection</span></div>
+<div class="alert"><b>READ THIS FIRST:</b> Start in PAPER mode. Keep <code>M15_PAPER_MODE=true</code>, <code>LIVE_TRADING=false</code> and <code>LIVE_ARM=</code> blank until startup, authentication and telemetry are verified. Automated crypto trading can lose money. Test first and never assume a bot guarantees profit.</div>
+</div></header>
+
+<nav><div class="container nav"><a href="#files">Package</a><a href="#python">Install Python</a><a href="#folder">Folder</a><a href="#env">Configure .env</a><a href="#run">Run</a><a href="#m1">M1</a><a href="#m5">M5</a><a href="#m15">M15</a><a href="#telemetry">Telemetry</a><a href="#live">Go Live</a><a href="#logs">Logs</a><a href="#stop">Stop/Restart</a><a href="#faq">Help</a></div></nav>
+
+<main>
+<section id="files"><div class="container"><div class="head"><div class="kicker">01 • Package</div><h2>Five files to start.</h2><p class="muted">Keep these five supplied files together in one Windows folder.</p></div>
+<div class="card"><div class="table"><table><tr><th>File</th><th>Purpose</th></tr>
+<tr><td><b>.env</b></td><td>Stable shared configuration for NDAX credentials, paper/live arming, market universe and telemetry/output paths.</td></tr>
+<tr><td><b>MAESTRO_ENTRY.py</b></td><td>Shared entry intelligence with centralized strategy, risk, learning, opportunity tracking and adaptive trade-management parameters.</td></tr>
+<tr><td><b>Maestro_M1.py</b></td><td>M1 Fast Scalper using one-minute primary execution and shared MAESTRO intelligence.</td></tr>
+<tr><td><b>Maestro_M5.py</b></td><td>M5 Precision Trader using five-minute primary execution and shared MAESTRO intelligence.</td></tr>
+<tr><td><b>Maestro_M15.py</b></td><td>M15 Stable Trader using M15 execution with M30 and H1 higher-timeframe trend context.</td></tr></table></div>
+<div class="call"><b>Important:</b> All three bots import <b>MAESTRO_ENTRY.py</b>. Strategy/entry/risk tuning is centralized there. The stable <b>.env</b> is primarily for credentials, paper/live arming, symbols and paths.</div></div>
+</div></section>
+
+<section id="python"><div class="container"><div class="head"><div class="kicker">02 • One-Time Computer Setup</div><h2>Install Python and the required packages.</h2></div>
+<div class="steps">
+<div class="step"><div class="num">1</div><div><h3>Install Python 3</h3><p>Install a current Python 3 release for Windows. During installation, enable the option to add Python to PATH if offered.</p></div></div>
+<div class="step"><div class="num">2</div><div><h3>Open Command Prompt</h3><p>Press the Windows key, type <b>cmd</b>, and open Command Prompt.</p></div></div>
+<div class="step"><div class="num">3</div><div><h3>Confirm Python works</h3><span class="code">python --version</span></div></div>
+<div class="step"><div class="num">4</div><div><h3>Install the libraries used by all bots</h3><span class="code">python -m pip install ccxt pandas numpy python-dotenv</span><p style="margin-top:8px">CCXT connects to NDAX; pandas and NumPy support market/indicator calculations; python-dotenv loads the shared .env.</p></div></div>
+</div></div></section>
+
+<section id="folder"><div class="container"><div class="head"><div class="kicker">03 • Folder Setup</div><h2>Create one bot folder.</h2></div>
+<div class="card"><p>Create this folder in Windows:</p><span class="code">C:\NDAX_BOT</span><p class="muted" style="margin-top:14px">Copy the five supplied files into it:</p><span class="code">C:\NDAX_BOT\
+  .env
+  MAESTRO_ENTRY.py
+  Maestro_M1.py
+  Maestro_M5.py
+  Maestro_M15.py</span>
+<div class="call"><b>Important:</b> Make sure the scripts really end in <b>.py</b> and the configuration is exactly <b>.env</b>, not <b>.env.txt</b>. Do not rename <b>MAESTRO_ENTRY.py</b> unless you also change the imports in the bots.</div></div></div></section>
+
+<section id="env"><div class="container"><div class="head"><div class="kicker">04 • Shared Configuration</div><h2>Use the supplied stable .env.</h2><p class="muted">M1, M5 and M15 share the same account, arming, market-universe and output-path configuration.</p></div>
+<div class="grid2">
+<div class="card"><h3>NDAX credentials</h3><p class="muted">Enter your own credentials locally:</p><span class="code">NDAX_API_KEY=YOUR_API_KEY
+NDAX_API_SECRET=YOUR_API_SECRET
+NDAX_USER_ID=YOUR_USER_ID
+NDAX_ACCOUNT_ID=</span><p class="muted" style="margin-top:12px">The Account ID can normally remain blank if discovery succeeds. Never publish your completed .env.</p></div>
+<div class="card"><h3>Market universe</h3><span class="code">NDAX_SYMBOLS=BTC/CAD,ETH/CAD,XRP/CAD,SOL/CAD,ADA/CAD
+NDAX_AUTO_DISCOVER_CAD_MARKETS=true
+NDAX_AUTO_QUOTE=CAD</span><p class="muted" style="margin-top:12px">The system can also observe additional CAD markets for research when auto-discovery/full-market learning is enabled.</p></div>
+</div>
+<div class="grid2" style="margin-top:18px">
+<div class="card"><h3>FIRST RUN — safe test setting</h3><span class="code">M15_PAPER_MODE=true
+M15_PAPER_START_BALANCE_CAD=500.00
+LIVE_TRADING=false
+LIVE_ARM=</span><p class="muted" style="margin-top:12px">The supplied M1, M5 and M15 builds read this shared paper/live control.</p></div>
+<div class="card"><h3>Folders & learning state</h3><span class="code">M15_BASE_DIR=C:\NDAX_BOT
+MAESTRO_LOGS_DIR=C:\NDAX_BOT\Logs
+MAESTRO_JSON_DIR=C:\NDAX_BOT\Json
+MAESTRO_ENTRY_LEARNING_STATE_FILE=C:\NDAX_BOT\Json\maestro_entry_crypto_learning.json</span></div>
+</div></div></section>
+
+<section id="run"><div class="container"><div class="head"><div class="kicker">05 • Start the Bots</div><h2>Run M1, M5 and M15 in three windows.</h2></div>
+<div class="steps">
+<div class="step"><div class="num">1</div><div><h3>Command Prompt #1 — M1</h3><span class="code">cd C:\NDAX_BOT
+python Maestro_M1.py</span></div></div>
+<div class="step"><div class="num">2</div><div><h3>Command Prompt #2 — M5</h3><span class="code">cd C:\NDAX_BOT
+python Maestro_M5.py</span></div></div>
+<div class="step"><div class="num">3</div><div><h3>Command Prompt #3 — M15</h3><span class="code">cd C:\NDAX_BOT
+python Maestro_M15.py</span></div></div>
+</div>
+<div class="card" style="margin-top:18px"><h3>What a healthy startup looks like</h3><ul class="check"><li>The bot prints its version and PAPER/LIVE mode.</li><li>NDAX markets load.</li><li>Configured markets become available.</li><li>Private API authentication succeeds when credentials are valid.</li><li>Heartbeat/activity messages continue.</li><li>Signals, filters, opportunities and telemetry begin recording.</li></ul></div>
+</div></section>
+
+<section id="m1"><div class="container"><div class="head"><div class="kicker">06 • M1 Fast Scalper</div><h2>Fast one-minute execution.</h2></div>
+<div class="grid2"><div class="card"><span class="tag">FAST ENGINE</span><h3>M1 execution + macro context</h3><p class="muted">The current M1 build uses a 1-minute primary timeframe while sharing the MAESTRO entry/risk/learning framework and higher-timeframe context.</p><ul class="check"><li>Fast signal evaluation</li><li>Spread and execution checks</li><li>Centralized risk authority</li><li>Adaptive profit retention</li><li>Adaptive loss control</li><li>Opportunity and rejected-signal tracking</li><li>Post-exit analysis</li><li>High-end learning telemetry</li></ul></div>
+<div class="card"><h3>M1 telemetry</h3><span class="code">M1_STATE_FILE=...\maestro_m1_state.json
+M1_LOG_FILE=...\maestro_m1.log
+M1_EVENTS_FILE=...\maestro_m1_events.jsonl
+M1_OPPORTUNITIES_FILE=...\maestro_m1_opportunities.jsonl
+M1_MARKET_RESEARCH_FILE=...\maestro_m1_market_research.jsonl
+M1_TRADES_CSV=...\maestro_m1_trades.csv
+M1_SIGNALS_CSV=...\maestro_m1_signals.csv
+M1_ORDERS_FILE=...\orders_m1.txt</span></div></div>
+</div></section>
+
+<section id="m5"><div class="container"><div class="head"><div class="kicker">07 • M5 Precision Trader</div><h2>Five-minute structured execution.</h2></div>
+<div class="grid2"><div class="card"><span class="tag">SELECTIVE ENGINE</span><h3>M5 execution + shared intelligence</h3><p class="muted">The current M5 build uses a 5-minute primary timeframe plus the same centralized entry, risk, learning and telemetry framework.</p><ul class="check"><li>Five-minute primary execution</li><li>M30/H1 market context</li><li>Centralized risk controls</li><li>Adaptive profit retention</li><li>Adaptive loss control</li><li>Opportunity and missed-winner research</li><li>Post-exit analysis</li><li>High-end learning telemetry</li></ul></div>
+<div class="card"><h3>M5 telemetry</h3><span class="code">M5_STATE_FILE=...\maestro_m5_state.json
+M5_LOG_FILE=...\maestro_m5.log
+M5_EVENTS_FILE=...\maestro_m5_events.jsonl
+M5_OPPORTUNITIES_FILE=...\maestro_m5_opportunities.jsonl
+M5_MARKET_RESEARCH_FILE=...\maestro_m5_market_research.jsonl
+M5_TRADES_CSV=...\maestro_m5_trades.csv
+M5_SIGNALS_CSV=...\maestro_m5_signals.csv
+M5_ORDERS_FILE=...\orders_m5.txt</span></div></div>
+</div></section>
+
+<section id="m15"><div class="container"><div class="head"><div class="kicker">08 • M15 Stable Trader</div><h2>M15 structure. M30 + H1 trend context.</h2></div>
+<div class="grid2"><div class="card"><span class="tag">STABLE ENGINE</span><h3>Multi-timeframe confirmation</h3><p class="muted">The M15 Stable Trader uses M15 as its primary timeframe and M30/H1 higher-timeframe context to qualify directional conditions.</p><ul class="check"><li>M15 primary signal structure</li><li>M30 trend confirmation</li><li>H1 higher-timeframe confirmation</li><li>Live M15 timing clues</li><li>Adaptive profit retention</li><li>Adaptive loss control</li><li>Rejected/opportunity path tracking</li><li>High-end learning telemetry</li></ul></div>
+<div class="card"><h3>M15 telemetry</h3><span class="code">M15_STATE_FILE=...\maestro_m15_state.json
+M15_LOG_FILE=...\maestro_m15.log
+M15_EVENTS_FILE=...\maestro_m15_events.jsonl
+M15_OPPORTUNITIES_FILE=...\maestro_m15_opportunities.jsonl
+M15_MARKET_RESEARCH_FILE=...\maestro_m15_market_research.jsonl
+M15_TRADES_CSV=...\maestro_m15_trades.csv
+M15_SIGNALS_CSV=...\maestro_m15_signals.csv
+M15_ORDERS_FILE=...\orders_m15.txt</span></div></div>
+</div></section>
+
+<section id="telemetry"><div class="container"><div class="head"><div class="kicker">09 • Learning Telemetry</div><h2>Learn from trades and the market paths not taken.</h2></div>
+<div class="card"><span class="tag">RESEARCH ENGINE</span><h3>High-end learning, improvement & market-state analysis</h3><p class="muted">The shared MAESTRO intelligence records more than closed trades. It tracks opportunities, rejected setups, market paths, post-exit movement and counterfactual entry timing so future changes can be based on measured behavior.</p>
+<ul class="check"><li>Opportunity/counterfactual tracking</li><li>MFE and MAE path analysis</li><li>15s through 30-minute opportunity checkpoints</li><li>C$1 / C$2 / C$5 / C$10 / C$20 opportunity targets</li><li>Delayed-entry counterfactuals</li><li>Post-exit movement tracking</li><li>Missed-winner research</li><li>Full-market CAD learning scans</li><li>1m, 5m, 15m and 30m research timeframes</li><li>Persistent shared learning state</li></ul>
+<div class="call">Keep the JSONL, CSV and learning-state files when you want continuity between test batches. They are part of the system's research history.</div></div>
+</div></section>
+
+<section id="protection"><div class="container"><div class="head"><div class="kicker">10 • Centralized Control</div><h2>One shared MAESTRO intelligence layer.</h2></div>
+<div class="card"><div class="flow"><div><b>Scan</b>Market state</div><div><b>Qualify</b>Entry intelligence</div><div><b>Execute</b>M1 / M5 / M15</div><div><b>Protect</b>Adaptive risk/exit</div><div><b>Learn</b>Telemetry</div></div>
+<div class="call">Current strategy, entry, risk and learning tuning belongs in <b>MAESTRO_ENTRY.py</b>. Keep the stable <b>.env</b> focused on credentials, live/paper arming, symbols and file paths.</div>
+<p class="muted" style="margin-top:16px">The supplied bots are NDAX spot-long systems. They use the same shared intelligence while retaining their individual primary execution timeframes.</p></div>
+</div></section>
+
+<section id="live"><div class="container"><div class="head"><div class="kicker">11 • Live Trading</div><h2>Only arm live mode intentionally.</h2></div>
+<div class="alert"><b>Do not change this until paper testing, API authentication and telemetry behavior are verified.</b> Live mode sends real orders and can lose real money.</div>
+<div class="card" style="margin-top:18px"><p>Stop all three bots with <b>Ctrl+C</b>. To permit real orders, change:</p><span class="code">M15_PAPER_MODE=false
+LIVE_TRADING=true
+LIVE_ARM=YES_REAL_ORDERS</span><p class="muted" style="margin-top:12px">Restart M1, M5 and M15 and verify the reported operating mode before allowing them to run.</p>
+<div class="call"><b>Never distribute a customer package with your own filled-in API credentials.</b> Each user enters credentials locally.</div></div>
+</div></section>
+
+<section id="logs"><div class="container"><div class="head"><div class="kicker">12 • Files Created While Running</div><h2>Logs, state, signals and research telemetry.</h2></div>
+<div class="table"><table><tr><th>Category</th><th>Examples</th><th>Purpose</th></tr>
+<tr><td><b>Bot state</b></td><td>maestro_m1_state.json, maestro_m5_state.json, maestro_m15_state.json</td><td>Persistent bot/restart state.</td></tr>
+<tr><td><b>Main logs</b></td><td>maestro_m1.log, maestro_m5.log, maestro_m15.log</td><td>Diagnostics, heartbeat and execution information.</td></tr>
+<tr><td><b>Events</b></td><td>maestro_*_events.jsonl</td><td>Structured event history.</td></tr>
+<tr><td><b>Opportunities</b></td><td>maestro_*_opportunities.jsonl</td><td>Candidate/rejected setup and later-path analysis.</td></tr>
+<tr><td><b>Market research</b></td><td>maestro_*_market_research.jsonl</td><td>Broader market-state learning observations.</td></tr>
+<tr><td><b>Trades / signals</b></td><td>maestro_*_trades.csv / maestro_*_signals.csv</td><td>Trade and signal-level research records.</td></tr>
+<tr><td><b>Shared learning</b></td><td>maestro_entry_crypto_learning.json</td><td>Persistent shared MAESTRO learning state.</td></tr></table></div>
+<div class="call"><b>Do not casually delete research/state files.</b> Archive large logs when necessary, but preserve learning history when comparing test batches.</div>
+</div></section>
+
+<section id="messages"><div class="container"><div class="head"><div class="kicker">13 • Reading the Console</div><h2>Common situations in plain English.</h2></div>
+<div class="table"><table><tr><th>Situation</th><th>Meaning</th><th>What to do</th></tr>
+<tr><td class="good">PRIVATE API | AUTHENTICATED</td><td>Credentials were accepted for the required private API functions.</td><td>Continue checking startup and mode.</td></tr>
+<tr><td>Setup/filter rejected</td><td>The active entry lane did not qualify.</td><td>Normal. The telemetry can still track the market path.</td></tr>
+<tr><td>Spread/execution block</td><td>Current execution conditions do not satisfy the configured limits.</td><td>Wait rather than forcing a trade.</td></tr>
+<tr><td>WAIT / transition</td><td>The setup is being observed but has not completed qualification.</td><td>Allow the engine to re-evaluate.</td></tr>
+<tr><td>Daily/risk block</td><td>A centralized safety condition is active.</td><td>Inspect the reason before changing anything.</td></tr>
+<tr><td>Telemetry without trades</td><td>The research layer is still recording market behavior.</td><td>Useful for learning and missed-opportunity analysis.</td></tr></table></div>
+</div></section>
+
+<section id="stop"><div class="container"><div class="head"><div class="kicker">14 • Stop & Restart</div><h2>How to shut the bots down safely.</h2></div>
+<div class="card"><p>To stop a bot, click its Command Prompt window and press:</p><span class="code">Ctrl + C</span><p class="muted" style="margin-top:12px">Restart from <b>C:\NDAX_BOT</b> with the appropriate command:</p><span class="code">python Maestro_M1.py
+python Maestro_M5.py
+python Maestro_M15.py</span>
+<div class="alert"><b>Critical live-mode note:</b> before shutting down a live bot with an open position, inspect the actual NDAX position/order status and understand which protection remains exchange-side versus which management depends on the local Python process.</div></div>
+</div></section>
+
+<section id="faq"><div class="container"><div class="head"><div class="kicker">15 • Troubleshooting</div><h2>Beginner questions.</h2></div>
+<details open><summary>'python' is not recognized.</summary><p>Install Python 3 and make sure the PATH option is enabled, then reopen Command Prompt.</p></details>
+<details><summary>It says ModuleNotFoundError: MAESTRO_ENTRY.</summary><p>Confirm <code>MAESTRO_ENTRY.py</code> is in the same C:\NDAX_BOT folder as Maestro_M1.py, Maestro_M5.py and Maestro_M15.py.</p></details>
+<details><summary>A Python package is missing.</summary><p>Run <code>python -m pip install ccxt pandas numpy python-dotenv</code>.</p></details>
+<details><summary>The bot cannot find .env.</summary><p>Confirm it is named exactly <code>.env</code> and is stored in C:\NDAX_BOT.</p></details>
+<details><summary>Why is the bot not trading?</summary><p>A valid setup may not exist. Review the console plus opportunities, events and market-research telemetry before changing gates or risk controls.</p></details>
+<details><summary>Can I run M1, M5 and M15 together?</summary><p>Yes. The supplied package is designed for the three bots to use the same .env and shared MAESTRO_ENTRY intelligence while running in separate Command Prompt windows.</p></details>
+<details><summary>Do these bots short crypto?</summary><p>No. The supplied NDAX implementation is spot-long only.</p></details>
+</div></section>
+
+<section><div class="container"><div class="card" style="text-align:center"><div class="kicker">START HERE SUMMARY</div><h2>Six steps.</h2><p class="muted">1. Install Python → 2. Install ccxt, pandas, numpy and python-dotenv → 3. Put all five supplied files in C:\NDAX_BOT → 4. Enter your NDAX credentials locally → 5. Start in PAPER mode → 6. Run M1, M5 and M15 in separate Command Prompt windows and review the Logs/Json telemetry.</p></div></div></section>
+</main>
+<footer><div class="container">© 2026 Maestro Trade • Roma, Italia • Automated Trading Systems<br><br>Software documentation only. Crypto trading involves substantial risk. Execution, fees, spread, slippage, exchange availability and market gaps can cause actual results to differ from planned risk and reward.</div></footer>
+</body></html>

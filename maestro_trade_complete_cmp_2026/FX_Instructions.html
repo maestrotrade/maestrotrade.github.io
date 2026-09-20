@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maestro Trade FX | M1, M5, M15 & M30 Installation Guide</title>
+<meta name="description" content="Simple step-by-step installation and operating guide for Maestro Trade FX M1, M5, M15 and M30 Expert Advisors on MetaTrader 4.">
+<style>
+:root{
+  --bg:#050505;--panel:#0d0d0f;--panel2:#121216;--gold:#D4AF37;--gold2:#F3D979;
+  --text:#f8f8f8;--muted:#a9abb4;--green:#63e6a4;--red:#ff7777;
+  --line:rgba(212,175,55,.20);--shadow:0 24px 70px rgba(0,0,0,.42)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:radial-gradient(circle at 50% -8%,rgba(212,175,55,.14),transparent 30%),
+             linear-gradient(180deg,#050505,#08090b 55%,#050505);
+  color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.68
+}
+a{color:inherit}
+.container{width:min(1040px,calc(100% - 28px));margin:auto}
+.hero{text-align:center;padding:46px 0 34px}
+.logo{width:min(145px,34vw);height:auto;border-radius:50%;display:block;margin:0 auto 18px}
+.brand{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,6vw,3.5rem);font-weight:700}
+.gold{color:var(--gold)}
+.roma{color:var(--gold2);letter-spacing:2px;text-transform:uppercase;font-size:.75rem;margin-top:5px}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.6rem,7vw,5rem);line-height:1;margin:30px 0 16px}
+.hero p{color:var(--muted);max-width:760px;margin:auto;font-size:1.04rem}
+.quick{margin:24px auto 0;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.pill{border:1px solid var(--line);background:rgba(212,175,55,.04);border-radius:999px;padding:8px 13px;color:#ddd;font-size:.82rem}
+.warning{margin:22px auto 0;max-width:850px;padding:18px 20px;border:1px solid rgba(255,119,119,.25);background:rgba(255,119,119,.055);border-radius:18px;color:#d8d8dc;text-align:left}
+.warning strong{color:#ffb1b1}
+nav{position:sticky;top:0;z-index:20;background:rgba(5,5,5,.91);backdrop-filter:blur(15px);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav{display:flex;gap:8px;overflow:auto;padding:10px 0;white-space:nowrap}
+.nav a{text-decoration:none;border:1px solid rgba(255,255,255,.07);border-radius:999px;padding:8px 12px;color:#c8c9ce;font-size:.8rem}
+.nav a:hover{border-color:var(--gold);color:var(--gold2)}
+section{padding:54px 0}
+.head{margin-bottom:26px}
+.kicker{color:var(--gold);font-size:.73rem;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;margin:8px 0 10px}
+.head p,.muted{color:var(--muted)}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid rgba(255,255,255,.065);border-radius:24px;padding:clamp(22px,4vw,34px);box-shadow:var(--shadow)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.engine h3{font-family:Georgia,"Times New Roman",serif;font-size:2rem;margin-bottom:8px}
+.engine .tag{display:inline-block;color:#070707;background:var(--gold);font-weight:800;border-radius:999px;padding:5px 10px;font-size:.7rem;margin-bottom:14px}
+.engine ul,.checklist{list-style:none;margin-top:18px}
+.engine li,.checklist li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.055);color:#d7d8dc}
+.engine li:before,.checklist li:before{content:"✓";color:var(--green);font-weight:800;margin-right:10px}
+.steps{display:grid;gap:14px}
+.step{display:grid;grid-template-columns:58px 1fr;gap:18px;align-items:start;background:linear-gradient(180deg,#101115,#0a0b0d);border:1px solid rgba(255,255,255,.065);border-radius:20px;padding:22px}
+.num{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--gold);color:var(--gold);font-family:Georgia,serif;font-size:1.5rem;font-weight:700}
+.step h3{font-size:1.08rem;margin-bottom:5px}
+.step p{color:var(--muted)}
+.path,code{font-family:Consolas,"Courier New",monospace;background:#050607;border:1px solid rgba(212,175,55,.18);color:var(--gold2);border-radius:8px;padding:2px 7px}
+.path{display:block;padding:12px 14px;margin-top:10px;overflow:auto}
+.callout{margin-top:18px;border-left:3px solid var(--gold);background:rgba(212,175,55,.045);padding:16px 18px;border-radius:0 14px 14px 0;color:#d5d6da}
+.table-wrap{overflow:auto;border-radius:18px;border:1px solid rgba(255,255,255,.06)}
+table{width:100%;border-collapse:collapse;min-width:650px;background:#0b0c0f}
+th,td{text-align:left;padding:15px;border-bottom:1px solid rgba(255,255,255,.055);vertical-align:top}
+th{color:var(--gold2);background:#101115;font-size:.82rem;text-transform:uppercase;letter-spacing:.7px}
+td{color:#d5d6da;font-size:.91rem}
+.good{color:var(--green);font-weight:700}
+.bad{color:#ff9a9a;font-weight:700}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:20px}
+.flow div{background:#0b0c0f;border:1px solid var(--line);border-radius:16px;padding:17px 10px;text-align:center;color:#d8d9dc;font-size:.85rem}
+.flow b{display:block;color:var(--gold2);margin-bottom:4px}
+.faq details{background:#0b0c0f;border:1px solid rgba(255,255,255,.065);border-radius:15px;padding:16px 18px;margin:10px 0}
+.faq summary{cursor:pointer;font-weight:700;color:#eee}
+.faq details p{color:var(--muted);margin-top:10px}
+footer{padding:34px 0 50px;border-top:1px solid rgba(255,255,255,.05);text-align:center;color:#777b83;font-size:.78rem}
+.btn{display:inline-flex;margin-top:22px;text-decoration:none;background:var(--gold);color:#050505;font-weight:800;border-radius:999px;padding:14px 24px}
+@media(max-width:760px){
+  .grid2{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.step{grid-template-columns:45px 1fr}.num{width:42px;height:42px;font-size:1.2rem}
+  section{padding:42px 0}.hero{padding-top:28px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+<div class="container">
+  <img class="logo" src="https://maestrotrade.github.io/maestro_trade.png" alt="Maestro Trade">
+  <div class="brand">MAESTRO <span class="gold">TRADE</span></div>
+  <div class="roma">Roma, Italia</div>
+  <h1>FX Trading Bots <span class="gold">Installation Guide</span></h1>
+  <p>A beginner-friendly guide to installing, starting, and understanding the supplied Maestro Trade M1 Fast Scalper, M5 Precision Trader, M15 Stable Trader and M30 Trader in MetaTrader 4.</p>
+  <div class="quick">
+    <span class="pill">MetaTrader 4</span><span class="pill">M1 Scalper</span><span class="pill">M5 Trader</span>
+    <span class="pill">M15 Stable Trader</span><span class="pill">M30 Trader</span><span class="pill">Adaptive Profit Retention</span>
+    <span class="pill">Adaptive Loss Control</span><span class="pill">Learning Telemetry</span>
+  </div>
+  <div class="warning"><strong>Important:</strong> Automated trading can lose money. Start on a demo account or very small live risk until you have verified the EAs, broker symbol names, spread behavior, lot sizing, stop-loss placement, adaptive trade management, and order execution. No profit or win rate is guaranteed.</div>
+</div>
+</header>
+
+<nav><div class="container nav">
+<a href="#before">Before You Start</a><a href="#install">Install</a><a href="#charts">Charts</a>
+<a href="#m1">M1</a><a href="#m5">M5</a><a href="#m15">M15</a><a href="#m30">M30</a>
+<a href="#all">Run All</a><a href="#telemetry">Telemetry</a><a href="#verify">Verify</a><a href="#faq">Troubleshooting</a>
+</div></nav>
+
+<main>
+
+<section id="before"><div class="container">
+<div class="head"><div class="kicker">01 • Before You Start</div><h2>What you need.</h2><p>You do not need to know programming. You need MetaTrader 4, your broker login, and the four supplied Maestro Trade executable EA files.</p></div>
+<div class="grid2">
+<div class="card">
+<h3>Required</h3>
+<ul class="checklist">
+<li>MetaTrader 4 installed on a Windows PC or VPS</li>
+<li>A broker account connected to MT4</li>
+<li><code>MAESTRO_M1.ex4</code></li>
+<li><code>MAESTRO_M5.ex4</code></li>
+<li><code>MAESTRO_M15.ex4</code></li>
+<li><code>MAESTRO_M30.ex4</code></li>
+<li>Charts for the currency pairs you want the bots to monitor</li>
+<li>Internet connection while the EAs are running</li>
+</ul>
+</div>
+<div class="card">
+<h3>Simple rule to remember</h3>
+<p class="muted" style="margin-top:10px"><b style="color:var(--gold2)">M1 EA → M1 chart.</b><br><br><b style="color:var(--gold2)">M5 EA → M5 chart.</b><br><br><b style="color:var(--gold2)">M15 EA → M15 chart.</b><br><br><b style="color:var(--gold2)">M30 EA → M30 chart.</b><br><br>If you want all four systems on the same pair, open four separate charts for that pair.</p>
+</div>
+</div>
+</div></section>
+
+<section id="install"><div class="container">
+<div class="head"><div class="kicker">02 • Installation</div><h2>Install the four EAs in MT4.</h2><p>The supplied files are compiled <code>.ex4</code> Expert Advisors, so normal installation does not require MetaEditor compilation.</p></div>
+<div class="steps">
+<div class="step"><div class="num">1</div><div><h3>Open MetaTrader 4</h3><p>Log in to the trading account you want to use. For first testing, a demo account is strongly recommended.</p></div></div>
+<div class="step"><div class="num">2</div><div><h3>Open the MT4 data folder</h3><p>In MT4 click <b>File → Open Data Folder</b>.</p></div></div>
+<div class="step"><div class="num">3</div><div><h3>Open the Experts folder</h3><p>Open:</p><span class="path">MQL4 → Experts</span></div></div>
+<div class="step"><div class="num">4</div><div><h3>Copy all four Maestro Trade files</h3><span class="path">MAESTRO_M1.ex4
+MAESTRO_M5.ex4
+MAESTRO_M15.ex4
+MAESTRO_M30.ex4</span><p style="margin-top:8px">Place all four directly in <b>MQL4 → Experts</b>. Do not place them in Indicators or Scripts.</p></div></div>
+<div class="step"><div class="num">5</div><div><h3>No compilation is required</h3><p>The supplied files are already compiled <code>.ex4</code> executables. You only need MetaEditor if you later receive source <code>.mq4</code> files.</p></div></div>
+<div class="step"><div class="num">6</div><div><h3>Return to MT4 and refresh</h3><p>In Navigator, right-click <b>Expert Advisors → Refresh</b>. If the EAs still do not appear, close and reopen MT4.</p></div></div>
+</div>
+</div></section>
+
+<section id="charts"><div class="container">
+<div class="head"><div class="kicker">03 • Charts</div><h2>Prepare the currency-pair charts.</h2></div>
+<div class="card">
+<p>Open the currency pair you want to trade, for example <b>EUR/USD</b>. Use <b>File → New Chart</b> or open it from Market Watch.</p>
+<div class="callout"><b>M1:</b> select M1 before attaching <b>MAESTRO_M1</b>.<br><b>M5:</b> select M5 before attaching <b>MAESTRO_M5</b>.<br><b>M15:</b> select M15 before attaching <b>MAESTRO_M15</b>.<br><b>M30:</b> select M30 before attaching <b>MAESTRO_M30</b>.</div>
+<p class="muted" style="margin-top:18px">Repeat this for every pair you intentionally want the system to trade. Your broker may use symbol suffixes such as EURUSD.a or EURUSD-ECN; always use the exact broker symbol.</p>
+</div>
+</div></section>
+
+<section id="m1"><div class="container">
+<div class="head"><div class="kicker">04 • M1 Engine</div><h2>M1 Fast Scalper.</h2><p>The fastest supplied MAESTRO engine for short-timeframe opportunity detection and execution.</p></div>
+<div class="grid2">
+<div class="card engine"><span class="tag">FAST ENGINE</span><h3>M1 Fast Scalper</h3><p class="muted">Runs on the M1 chart while applying MAESTRO qualification, execution and protection logic.</p>
+<ul><li>M1 primary execution timeframe</li><li>Trend and momentum qualification</li><li>Spread and volatility controls</li><li>Risk-based position sizing</li><li>Adaptive profit retention</li><li>Adaptive loss control</li><li>Trade and opportunity telemetry</li><li>High-end learning, improvement and market-state analysis</li></ul></div>
+<div class="card"><h3>Install on</h3><div class="table-wrap" style="margin-top:15px"><table>
+<tr><th>Item</th><th>Setting</th></tr><tr><td>EA file</td><td>MAESTRO_M1.ex4</td></tr><tr><td>Chart timeframe</td><td>M1</td></tr><tr><td>Role</td><td>Fast Scalper</td></tr><tr><td>Protection</td><td>Adaptive profit retention + adaptive loss control</td></tr><tr><td>Research</td><td>Learning and market-state telemetry</td></tr></table></div>
+<p class="muted" style="margin-top:14px">The EA's <b>Inputs</b> tab is authoritative for configurable values in the supplied build.</p></div>
+</div></div></section>
+
+<section id="m5"><div class="container">
+<div class="head"><div class="kicker">05 • M5 Engine</div><h2>M5 Precision Trader.</h2><p>A more selective five-minute engine intended to wait for structured opportunities.</p></div>
+<div class="grid2">
+<div class="card engine"><span class="tag">SELECTIVE ENGINE</span><h3>M5 Precision Trader</h3><p class="muted">Runs on M5 and applies the current MAESTRO trading, protection and research framework.</p>
+<ul><li>M5 primary execution timeframe</li><li>Structured trend/momentum qualification</li><li>Spread and volatility controls</li><li>Risk-based position sizing</li><li>Adaptive profit retention</li><li>Adaptive loss control</li><li>Trade and opportunity telemetry</li><li>High-end learning, improvement and market-state analysis</li></ul></div>
+<div class="card"><h3>Install on</h3><div class="table-wrap" style="margin-top:15px"><table>
+<tr><th>Item</th><th>Setting</th></tr><tr><td>EA file</td><td>MAESTRO_M5.ex4</td></tr><tr><td>Chart timeframe</td><td>M5</td></tr><tr><td>Role</td><td>Precision Trader</td></tr><tr><td>Protection</td><td>Adaptive profit retention + adaptive loss control</td></tr><tr><td>Research</td><td>Learning and market-state telemetry</td></tr></table></div></div>
+</div></div></section>
+
+<section id="m15"><div class="container">
+<div class="head"><div class="kicker">06 • M15 Engine</div><h2>M15 Stable Trader.</h2><p>The M15 engine is designed around a more stable multi-timeframe view, using M15 execution with M30 and H1 trend context.</p></div>
+<div class="grid2">
+<div class="card engine"><span class="tag">STABLE ENGINE</span><h3>M15 Stable Trader</h3><p class="muted">Uses the M15 chart as its primary execution timeframe and evaluates the broader M30 and H1 trend context.</p>
+<ul><li>M15 primary execution timeframe</li><li>M30 trend context</li><li>H1 higher-timeframe trend context</li><li>Multi-timeframe directional qualification</li><li>Adaptive profit retention</li><li>Adaptive loss control</li><li>Trade and opportunity telemetry</li><li>High-end learning, improvement and market-state analysis</li></ul></div>
+<div class="card"><h3>Install on</h3><div class="table-wrap" style="margin-top:15px"><table>
+<tr><th>Item</th><th>Setting</th></tr><tr><td>EA file</td><td>MAESTRO_M15.ex4</td></tr><tr><td>Chart timeframe</td><td>M15</td></tr><tr><td>Trend context</td><td>M30 + H1</td></tr><tr><td>Role</td><td>Stable Trader</td></tr><tr><td>Protection</td><td>Adaptive profit retention + adaptive loss control</td></tr><tr><td>Research</td><td>Learning and market-state telemetry</td></tr></table></div></div>
+</div></div></section>
+
+<section id="m30"><div class="container">
+<div class="head"><div class="kicker">07 • M30 Engine</div><h2>M30 Trader.</h2><p>The longest primary timeframe in the supplied four-bot FX package.</p></div>
+<div class="grid2">
+<div class="card engine"><span class="tag">STRUCTURE ENGINE</span><h3>M30 Trader</h3><p class="muted">Runs on the M30 chart for slower, higher-timeframe trade evaluation while retaining the MAESTRO protection and telemetry framework.</p>
+<ul><li>M30 primary execution timeframe</li><li>Higher-timeframe market structure focus</li><li>Trend and momentum qualification</li><li>Risk-based position sizing</li><li>Adaptive profit retention</li><li>Adaptive loss control</li><li>Trade and opportunity telemetry</li><li>High-end learning, improvement and market-state analysis</li></ul></div>
+<div class="card"><h3>Install on</h3><div class="table-wrap" style="margin-top:15px"><table>
+<tr><th>Item</th><th>Setting</th></tr><tr><td>EA file</td><td>MAESTRO_M30.ex4</td></tr><tr><td>Chart timeframe</td><td>M30</td></tr><tr><td>Role</td><td>M30 Trader</td></tr><tr><td>Protection</td><td>Adaptive profit retention + adaptive loss control</td></tr><tr><td>Research</td><td>Learning and market-state telemetry</td></tr></table></div></div>
+</div></div></section>
+
+<section id="all"><div class="container">
+<div class="head"><div class="kicker">08 • Running All Four</div><h2>M1 + M5 + M15 + M30 on the same pair.</h2></div>
+<div class="card">
+<p>MT4 permits only one Expert Advisor on a single chart. To run all four Maestro engines on the same currency pair, open <b>four separate charts</b>.</p>
+<div class="flow"><div><b>Chart #1</b>M1 + MAESTRO_M1</div><div><b>Chart #2</b>M5 + MAESTRO_M5</div><div><b>Chart #3</b>M15 + MAESTRO_M15</div><div><b>Chart #4</b>M30 + MAESTRO_M30</div><div><b>Monitor</b>Experts + Journal</div></div>
+<div class="callout">Keep each EA on its intended timeframe. Do not casually alter Magic Numbers, duplicate-exposure controls, risk settings or other coordination/safety inputs unless you understand the effect across all running EAs.</div>
+</div></div></section>
+
+<section id="telemetry"><div class="container">
+<div class="head"><div class="kicker">09 • Learning Telemetry</div><h2>High-end learning, improvement and market-state analysis.</h2><p>The current MAESTRO package is designed to collect information not only about completed trades but also about setup quality and market behavior around potential opportunities.</p></div>
+<div class="card">
+<div class="flow"><div><b>Setup</b>Market opportunity</div><div><b>Qualify</b>Signal + gates</div><div><b>Trade</b>Entry + management</div><div><b>Measure</b>MFE / MAE / outcome</div><div><b>Learn</b>Market state</div></div>
+<ul class="checklist">
+<li>Tracks trade and signal behavior for later analysis</li>
+<li>Supports learning from accepted and rejected opportunities</li>
+<li>Measures favorable and adverse movement around setups</li>
+<li>Supports analysis of entry timing and market-state differences</li>
+<li>Supports adaptive profit-retention research</li>
+<li>Supports adaptive-loss research</li>
+<li>Helps compare M1, M5, M15 and M30 behavior as separate trading engines</li>
+</ul>
+<div class="callout">Preserve MAESTRO telemetry/log files when comparing test batches. The learning history is valuable for determining whether changes improve expectancy rather than merely increasing trade frequency.</div>
+</div></div></section>
+
+<section id="activate"><div class="container">
+<div class="head"><div class="kicker">10 • Activate</div><h2>Attach each EA and turn on trading.</h2></div>
+<div class="steps">
+<div class="step"><div class="num">1</div><div><h3>Find the EA</h3><p>In Navigator → Expert Advisors, locate MAESTRO_M1, MAESTRO_M5, MAESTRO_M15 or MAESTRO_M30.</p></div></div>
+<div class="step"><div class="num">2</div><div><h3>Attach it to the correct chart</h3><p>M1 goes on M1; M5 on M5; M15 on M15; M30 on M30.</p></div></div>
+<div class="step"><div class="num">3</div><div><h3>Review the Inputs tab</h3><p>Review the supplied risk and operational settings before enabling automated trading. The actual Inputs shown by your EA build are authoritative.</p></div></div>
+<div class="step"><div class="num">4</div><div><h3>Allow live trading</h3><p>Enable <b>Allow live trading</b> only when you intentionally want that EA to place orders. Do not enable unnecessary DLL permissions.</p></div></div>
+<div class="step"><div class="num">5</div><div><h3>Turn on MT4 AutoTrading</h3><p>Click the <b>AutoTrading</b> button on the MT4 toolbar.</p></div></div>
+<div class="step"><div class="num">6</div><div><h3>Confirm all active charts</h3><p>Check the EA name/status on every M1, M5, M15 and M30 chart you configured.</p></div></div>
+</div></div></section>
+
+<section id="verify"><div class="container">
+<div class="head"><div class="kicker">11 • First-Run Check</div><h2>Do not walk away yet.</h2><p>Verify each EA independently before treating the installation as complete.</p></div>
+<div class="card"><ul class="checklist">
+<li>The correct broker account is logged in</li>
+<li>MAESTRO_M1 is attached only to intended M1 charts</li>
+<li>MAESTRO_M5 is attached only to intended M5 charts</li>
+<li>MAESTRO_M15 is attached only to intended M15 charts</li>
+<li>MAESTRO_M30 is attached only to intended M30 charts</li>
+<li>AutoTrading is enabled when intended</li>
+<li>The Experts/Journal tabs show no repeating errors</li>
+<li>Configured risk is appropriate for the account</li>
+<li>Calculated lot sizes look reasonable</li>
+<li>Spread is not constantly blocking entries because of broker pricing</li>
+<li>When a test trade occurs, protection/management behaves as expected</li>
+<li>Telemetry/logging is being produced as expected</li>
+<li>Zero trades can be a valid result while the EA waits for a qualifying setup</li>
+</ul></div></div></section>
+
+<section id="reading"><div class="container">
+<div class="head"><div class="kicker">12 • Reading the Bots</div><h2>What common behavior means.</h2></div>
+<div class="table-wrap"><table>
+<tr><th>Message / behavior</th><th>Meaning</th><th>Action</th></tr>
+<tr><td class="good">Scanning / waiting</td><td>The EA is active but no setup currently passes all qualification rules.</td><td>Usually do nothing.</td></tr>
+<tr><td>Candidate / setup rejected</td><td>The market was observed but did not complete the active entry qualification.</td><td>Allow telemetry to record what happens next.</td></tr>
+<tr><td>Spread too high</td><td>Trading cost is above the permitted level.</td><td>Wait; do not loosen the filter merely to force trades.</td></tr>
+<tr><td>Trend / momentum gate</td><td>The active timeframe or higher-timeframe context is not sufficiently aligned.</td><td>Wait for another setup.</td></tr>
+<tr><td>Adaptive management active</td><td>The EA is managing profit retention or downside behavior according to its current logic.</td><td>Monitor the trade and telemetry.</td></tr>
+<tr><td class="bad">Trade disabled / EA not trading</td><td>AutoTrading, Allow live trading, login rights, market status or another permission may be blocking orders.</td><td>Check activation and Journal/Experts messages.</td></tr>
+</table></div></div></section>
+
+<section id="faq"><div class="container faq">
+<div class="head"><div class="kicker">13 • Troubleshooting</div><h2>Common beginner questions.</h2></div>
+<details open><summary>I copied the EAs but cannot see them in Navigator.</summary><p>Confirm all four EX4 files are inside <b>MQL4 → Experts</b>. Right-click Expert Advisors → Refresh and restart MT4 if necessary.</p></details>
+<details><summary>Do I need to compile these files?</summary><p>No. The supplied MAESTRO_M1.ex4, MAESTRO_M5.ex4, MAESTRO_M15.ex4 and MAESTRO_M30.ex4 files are already compiled MT4 Expert Advisors.</p></details>
+<details><summary>Can I put M1, M5, M15 and M30 on the same chart?</summary><p>No. MT4 supports one Expert Advisor per chart. Open four copies of the pair and set each to the corresponding timeframe.</p></details>
+<details><summary>The EA is visible but does not trade.</summary><p>Check AutoTrading, Allow live trading, the correct timeframe, market hours, spread, strategy qualification, exposure/risk controls and the Experts/Journal tabs. No trade can be the correct result.</p></details>
+<details><summary>Can I close MT4 after installing the bots?</summary><p>No. Locally hosted EAs require the MT4 terminal to remain running and connected. Use an always-on PC or VPS for continuous operation.</p></details>
+<details><summary>Why keep the telemetry?</summary><p>It allows you to study entry quality, favorable/adverse movement, market state, missed opportunities, exit behavior and whether later system changes actually improve economic performance.</p></details>
+</div></section>
+
+<section><div class="container">
+<div class="card" style="text-align:center">
+<div class="kicker">Final Checklist</div>
+<h2>Four engines. One MAESTRO system.</h2>
+<p class="muted">Install the four supplied EX4 files, attach each to its matching timeframe, begin conservatively, monitor the first trades, and preserve telemetry so system changes can be evaluated over meaningful samples.</p>
+<a class="btn" href="https://maestrotrade.github.io/">Maestro Trade Home</a>
+</div></div></section>
+
+</main>
+<footer><div class="container">© 2026 Maestro Trade • Roma, Italia • Automated Trading Systems<br><br>Educational and software documentation only. Trading forex and CFDs involves substantial risk and can result in loss of capital.</div></footer>
+</body>
+</html>
